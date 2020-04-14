@@ -1,5 +1,5 @@
 resource "aws_s3_bucket" "website" {
-  bucket = var.website_url
+  bucket = "${var.website_name}.com"
   acl    = "public-read"
   policy = <<EOF
 {
