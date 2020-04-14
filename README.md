@@ -23,8 +23,8 @@ module "website" {
     r53_zone_id = "XXXX"
     github_oauth_token = "XXXX"
     github_repo_name = "repoName"
-    github_branch_name = "branchName"
-    github_owner_name = "branchName"
+    github_branch_name = "master"
+    github_owner_name = "ownerName"
 }
 ```
 
