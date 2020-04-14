@@ -1,6 +1,3 @@
-
-################ CODEBUILD ##################
-
 resource "aws_iam_role" "codebuild_assume_role" {
   name = "${var.pipeline_name}-codebuild-role"
 
@@ -22,7 +19,7 @@ EOF
 
 resource "aws_iam_role_policy" "codebuild_policy" {
   name = "${var.pipeline_name}-codebuild-policy"
-  role = "${aws_iam_role.codebuild_assume_role.id}"
+  role = aws_iam_role.codebuild_assume_role.id
 
   policy = <<POLICY
 {
@@ -68,7 +65,7 @@ POLICY
 resource "aws_codebuild_project" "build_project" {
   name          = "cb-${var.pipeline_name}"
   description   = "The CodeBuild project for ${var.pipeline_name}"
-  service_role  = "${aws_iam_role.codebuild_assume_role.arn}"
+  service_role  = aws_iam_role.codebuild_assume_role.arn
   build_timeout = "60"
 
   artifacts {
