@@ -16,7 +16,7 @@ In your terraform files, import the module by github URL and include the require
 
 ```
 module "website" {
-    source = "git::git@github.com:schoenfelde/terraform-static-site-with-cicd.git//main"
+    source = "github.com/schoenfelde/terraform-static-site-with-cicd.git//main"
     website_name = "site.domain" //Your Desired URL
     environment = "dev"
     acm_arn = "arn::...."

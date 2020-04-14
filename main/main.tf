@@ -1,11 +1,11 @@
 module "s3" {
-  source          = "../../../modules/s3"
+  source          = "../modules/s3"
   website_name     = var.website_name
   environment      = var.environment
 }
 
 module "cloudfront" {
-  source           = "../../../modules/cloudfront"
+  source           = "../modules/cloudfront"
   website_endpoint = module.s3.website_endpoint
   website_name     = var.website_name
   acm_arn          = var.acm_arn
@@ -13,7 +13,7 @@ module "cloudfront" {
 }
 
 module "dns" {
-  source           = "../../../modules/dns"
+  source           = "../modules/dns"
   r53_zone_id      = var.r53_zone_id
   website_name     = var.website_name
   domain_name      = module.cloudfront.domain_name
@@ -22,7 +22,7 @@ module "dns" {
 }
 
 module "cicd" {
-  source                      = "../../../modules/cicd"
+  source                      = "../modules/cicd"
   pipeline_name               = "${var.website_name}-${var.environment}"
   github_oath_token           = var.github_oath_token
   github_owner_name           = var.github_owner_name
