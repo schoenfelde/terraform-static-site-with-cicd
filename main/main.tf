@@ -23,7 +23,7 @@ module "dns" {
 
 module "cicd" {
   source                      = "../modules/cicd"
-  pipeline_name               = "${var.website_name}-${var.environment}"
+  pipeline_name               = "${var.github_repo_name}-${var.github_branch_name}"
   github_oauth_token          = var.github_oauth_token
   github_owner_name           = var.github_owner_name
   github_repo_name            = var.github_repo_name
