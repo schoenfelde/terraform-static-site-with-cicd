@@ -10,7 +10,7 @@ resource "aws_cloudfront_distribution" "site_distribution" {
     origin_id = "${var.website_name}-${var.environment}-origin"
   }
   enabled             = true
-  aliases             = ["${var.website_name}.com", "www.${var.website_name}.com"]
+  aliases             = ["${var.website_name}.com"]
   price_class         = "PriceClass_100"
   default_root_object = "index.html"
   default_cache_behavior {
